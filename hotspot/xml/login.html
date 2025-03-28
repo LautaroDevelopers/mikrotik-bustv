@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="expires" content="-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internet hotspot - Log in</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .btn-conect {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .btn-conect:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- two other colors
+
+<body class="lite">
+<body class="dark">
+
+-->
+
+  <div class="ie-fixMinHeight">
+    <div class="main">
+      <div class="wrap animated fadeIn">
+        <p class="info $(if error)alert$(endif)">
+          $(if trial == 'yes')<br /><a class="btn-conect">Conectarme</a>.$(endif)
+        </p>
+        <p class="info bt">Powered by MikroTik RouterOS</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

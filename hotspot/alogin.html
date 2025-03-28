@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="3; url=https://televisionalternativa.studio">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="-1">
+  <title>BusTV - Conexión Exitosa</title>
+  <link rel="stylesheet" href="css/custom-styles.css">
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #1e1e1e;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-icon:before {
+      content: "✓";
+      font-size: 50px;
+      color: white;
+    }
+
+    .success-message {
+      color: #4CAF50;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .redirect-message {
+      color: #486173;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 5px solid #4CAF50;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .info a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function redirectToSite() {
+      document.getElementById('successMessage').style.display = 'block';
+      setTimeout(function () {
+        window.location.href = 'https://televisionalternativa.studio';
+      }, 3000);
+    }
+  </script>
+</head>
+
+<body onLoad="redirectToSite()">
+  <div class="container">
+    <div class="success-icon"></div>
+    <h1>Conexión Exitosa</h1>
+    <div id="successMessage">
+      <p class="success-message">Ya tienes acceso a internet</p>
+      <div class="loader"></div>
+      <p class="redirect-message">Serás redirigido a Televisión Alternativa en unos segundos...</p>
+      <p class="info">Si no eres redirigido automáticamente, <a href="https://televisionalternativa.studio">haz clic
+          aquí</a></p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<html>
+
+<head>
+  <!-- Plantillas de MikroTik -->
+  <!--[if refresh-timeout]>
+  <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+  <![endif]-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="-1">
+  <title>BusTv - Estado</title>
+  <link rel="stylesheet" href="css/custom-styles.css">
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #1e1e1e;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 1rem;
+      border-collapse: collapse;
+    }
+
+    table td {
+      padding: 0.5rem;
+      border-bottom: 1px solid #333333;
+    }
+
+    .info {
+      margin-top: 1rem;
+      color: #b0b0b0;
+    }
+
+    .info a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .info a:hover {
+      text-decoration: underline;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    <!--[if advert-pending == 'yes']>
+    var popup = '';
+    function focusAdvert() {
+      if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+      popup = open('$(link-advert)', 'hotspot_advert', '');
+      setTimeout("focusAdvert()", 1000);
+    }
+    <![endif]-->
+    function openLogout() {
+      if (window.name != 'hotspot_status') return true;
+      open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+      window.close();
+      return false;
+    }
+  </script>
+</head>
+
+<body <!--[if advert-pending=='yes' ]>
+  <div class="container">
+    <!--[if login-by == 'trial']>
+  <h1>Hola, usuario de prueba!</h1>
+  <!--[elif login-by != 'mac']>
+    <h1>Hola, $(username)!</h1>
+    <![endif]-->
+
+    <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+      <table>
+        <tr>
+          <td>Dirección IP</td>
+          <td>$(ip)</td>
+        </tr>
+        <tr>
+          <td>Bytes subidos / bajados</td>
+          <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+        </tr>
+        <!--[if session-time-left]>
+        <tr>
+          <td>Conectado / tiempo restante</td>
+          <td>$(uptime) / $(session-time-left)</td>
+        </tr>
+        <!--[else]>
+        <tr>
+          <td>Conectado</td>
+          <td>$(uptime)</td>
+        </tr>
+        <![endif]-->
+        <!--[if blocked == 'yes']>
+        <tr>
+          <td>Estado</td>
+          <td>
+            <a href="$(link-advert)" target="hotspot_advert">Publicidad requerida</a>
+          </td>
+        </tr>
+        <!--[elif refresh-timeout]>
+        <tr>
+          <td>Actualización de estado</td>
+          <td>$(refresh-timeout)</td>
+        </tr>
+        <![endif]-->
+      </table>
+      <!--[if login-by-mac != 'yes']>
+      <!-- enlace del administrador de usuarios. si el administrador de usuarios reside en otro router, reemplace $(hostname) por su dirección
+                    <button onclick="document.location='http://$(hostname)/user?subs='; return false;">estado</button>
+                    <!-- fin del enlace del administrador de usuarios -->
+      <input type="submit" value="Cerrar sesión">
+      <![endif]-->
+    </form>
+  </div>
+</body>
+
+</html>
